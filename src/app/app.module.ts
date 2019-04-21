@@ -7,6 +7,7 @@ import { StockChartComponent } from './stock-chart/stock-chart.component';
 import { StockHeaderComponent } from './stock-header/stock-header.component';
 import { StockReportComponent } from './stock-report/stock-report.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HighchartsChartComponent } from 'highcharts-angular';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
     StockSearchComponent,
     StockChartComponent,
     StockHeaderComponent,
-    StockReportComponent
+    StockReportComponent,
+    HighchartsChartComponent
   ],
   imports: [
     BrowserModule,

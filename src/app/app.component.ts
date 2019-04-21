@@ -8,4 +8,7 @@ import { Stock } from './models/models';
 })
 export class AppComponent {
   stock: Stock;
+  onSelectionChange(stock: Stock) {
+    this.stock = stock;
+  }
 }

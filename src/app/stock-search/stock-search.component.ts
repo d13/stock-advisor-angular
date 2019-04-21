@@ -10,7 +10,7 @@ import { StockSearchService } from '../stock-search.service';
   styleUrls: ['./stock-search.component.scss']
 })
 export class StockSearchComponent implements OnInit {
-  @Output() onSelectionChange: EventEmitter<Stock> = new EventEmitter();
+  @Output() selectionChange: EventEmitter<Stock> = new EventEmitter();
   @ViewChild('searchInput') input: ElementRef;
   @Input() value: string = '';
   inputSub: Subscription;
@@ -42,18 +42,17 @@ export class StockSearchComponent implements OnInit {
     this.value = stock.symbol;
     this.validStock = stock;
     this.results = [];
-    this.onSelectionChange.emit(stock);
+    this.selectionChange.emit(stock);
   }
 
-  onSearchEntry(val: any) {
-    console.log(val);
+  onSearchEntry(val: string) {
     if (!val) {
       this.value = '';
       this.assisting = false;
       this.searching = false;
       this.validStock = undefined;
       this.results = [];
-      this.onSelectionChange.emit();
+      this.selectionChange.emit();
     }
 
     this.value = val;
@@ -67,7 +66,7 @@ export class StockSearchComponent implements OnInit {
         this.validStock = validStock;
         this.searching = false;
         this.results = stocks;
-        this.onSelectionChange.emit(validStock);
+        this.selectionChange.emit(validStock);
       });
   }
 }
