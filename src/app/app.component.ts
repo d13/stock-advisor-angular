@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Stock } from './models/models';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'stock-advisor-ng';
+  stock: Stock;
 }

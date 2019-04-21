@@ -1,0 +1,20 @@
+<div *ngIf="stock" class="c-stock-header">
+  <h1>{{stock.symbol}}</h1>
+  <h2>{{stock.name}}</h2>
+  <dl class="c-stock-header__stats">
+      <dt class="c-stock-header__stat">Exchange</dt>
+      <dd class="c-stock-header__val">{{stock.exchangeShort}}</dd>
+      <dt class="c-stock-header__stat">Price ({{stock.currency}})</dt>
+      <dd class="c-stock-header__val">{{stock.price}}</dd>
+  </dl>
+</div>
+<div *ngIf="!stock" class="c-stock-header">
+    <h1>&#9644;&#9644;&#9644;&#9644;</h1>
+    <h2>&#8213;&#8213;&#8213;&#8213;&#8213;&#8213;&#8213;</h2>
+    <dl class="c-stock-header__stats">
+        <dt class="c-stock-header__stat">Exchange</dt>
+        <dd class="c-stock-header__val">&#8213;&#8213;&#8213;&#8213;</dd>
+        <dt class="c-stock-header__stat">Price (&#8213;)</dt>
+        <dd class="c-stock-header__val">&#8213;.&#8213;&#8213;</dd>
+    </dl>
+</div>
