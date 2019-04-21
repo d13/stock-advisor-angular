@@ -17,7 +17,7 @@ export class StockSearchService {
     const params = Object.assign({}, props, { endpoint });
 
     const qs = Object.keys(params).map((val, i) => `${i === 0 ? '?' : '&'}${val}=${params[val]}`).join('');
-    return this.http.get(`http://keithdaulton.com/stocks.php${qs}`);
+    return this.http.get(`https://keithdaulton.com/stocks.php${qs}`);
   }
 
   public findStocksBySymbol(symbol: string): Observable<Stock[]> {
