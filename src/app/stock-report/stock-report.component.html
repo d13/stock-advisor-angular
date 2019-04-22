@@ -1,16 +1,18 @@
 <ng-template [ngIf]="history?.length">
-    <div *ngIf="shouldBuy" class="c-banner c-banner--success">
+    <div *ngIf="shouldBuy" class="c-banner c-banner--success h-a-fade-in">
         One share of {{stock?.symbol}} is currently worth {{todaysPrice | currency }}. That's {{absDiff | currency }} MORE than yesterday. We recommend BUYING.
     </div>
-    <div *ngIf="shouldSell" class="c-banner c-banner--danger">
+    <div *ngIf="shouldSell" class="c-banner c-banner--danger h-a-fade-in">
         One share of {{stock?.symbol}} is currently worth {{todaysPrice | currency }}. That's {{absDiff | currency }} LESS than yesterday. We recommend SELLING.
     </div>
-    <div *ngIf="shouldHold" class="c-banner">
+    <div *ngIf="shouldHold" class="c-banner h-a-fade-in">
         One share of {{stock?.symbol}} is currently worth {{todaysPrice | currency }}. That's the SAME as yesterday's. We recommend HOLDING.
     </div>
-    <app-stock-chart [stock]="stock" [data]="history"></app-stock-chart>
+    <app-stock-chart [stock]="stock" [data]="history" class="h-d-block h-a-fade-in h-a-delay-long"></app-stock-chart>
 </ng-template>
-
-<div *ngIf="!history?.length" class="c-banner">
-  &#8213;&#8213;&#8213;&#8213;&#8213;&#8213;&#8213;
-</div>
+<ng-template [ngIf]="!history?.length">
+    <div class="c-banner">
+        &#8213;&#8213;&#8213;&#8213;&#8213;&#8213;&#8213;&#8213;&#8213;&#8213;&#8213;<br>
+        &#8213;&#8213;&#8213;&#8213;&#8213;&#8213;&#8213;
+    </div>
+</ng-template>

@@ -55,6 +55,9 @@ export class StockReportComponent implements OnInit {
   }
 
   get diff() {
+    if (!this.todaysPrice || !this.yesterdaysPrice) {
+      return 0;
+    }
     return this.todaysPrice - this.yesterdaysPrice;
   }
 
@@ -63,14 +66,23 @@ export class StockReportComponent implements OnInit {
   }
 
   get shouldBuy() {
+    if (!this.todaysPrice || !this.yesterdaysPrice) {
+      return false;
+    }
     return this.todaysPrice > this.yesterdaysPrice;
   }
 
   get shouldSell() {
+    if (!this.todaysPrice || !this.yesterdaysPrice) {
+      return false;
+    }
     return this.todaysPrice < this.yesterdaysPrice;
   }
 
   get shouldHold() {
+    if (!this.todaysPrice || !this.yesterdaysPrice) {
+      return false;
+    }
     return this.diff === 0;
   }
 }
