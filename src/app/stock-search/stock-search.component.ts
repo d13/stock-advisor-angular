@@ -37,6 +37,22 @@ export class StockSearchComponent implements OnInit {
     this.inputSub.unsubscribe();
   }
 
+  closeAssist() {
+    this.assisting = false;
+    this.searching = false;
+    this.results = [];
+  }
+
+  onBlur() {
+    setTimeout(_ => {
+      this.closeAssist();
+    }, 200);
+  }
+
+  onFocus(val: string) {
+    this.onSearchEntry(val);
+  }
+
   onSelectHint(stock: Stock) {
     this.assisting = false;
     this.value = stock.symbol;
@@ -47,12 +63,13 @@ export class StockSearchComponent implements OnInit {
 
   onSearchEntry(val: string) {
     if (!val) {
-      this.value = '';
       this.assisting = false;
+      this.value = '';
       this.searching = false;
       this.validStock = undefined;
       this.results = [];
       this.selectionChange.emit();
+      return;
     }
 
     this.value = val;

@@ -1,7 +1,7 @@
 <div class="c-symbol-search">
   <div class="c-symbol-search__field">
     <label class="c-symbol-search__label" for="name">Ticker Symbol</label>
-    <input [value]="value" #searchInput  id="name" class="c-symbol-search__input" placeholder="ex. AAPL">
+    <input [value]="value" #searchInput (blur)="onBlur()" (focus)="onFocus($event.target.value)" id="name" class="c-symbol-search__input" placeholder="ex. AAPL">
   </div>
   <div *ngIf="assisting" class="c-symbol-search__results">
       <div *ngIf="searching" class="c-symbol-search__status"><div class="c-banner">Searching...</div></div>
